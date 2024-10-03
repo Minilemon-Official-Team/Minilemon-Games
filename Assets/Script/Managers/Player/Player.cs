@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -11,22 +12,22 @@ public class Player : MonoBehaviour
 
     [Tooltip("Posisi kepala (aiming untuk mengambil item)")]
     [SerializeField] Transform headTransform;
-    
+
     [Tooltip("Layer dari item yang diambil")]
     [SerializeField] LayerMask itemLayer;
 
     [Tooltip("Jarak yang diperbolehkan untuk diambil")]
     [SerializeField, Min(0)] float pickupRange = 5f;
 
-    [Tooltip("Sudut yang diperbolehkan untuk diambil")] 
+    [Tooltip("Sudut yang diperbolehkan untuk diambil")]
     [SerializeField, Range(0, 45)] float pickupAngle = 30f;
 
-    GameObject currentItem;
     GameObject nearbyItem;
+    public Inventory inventory { get; private set; }
 
     void Awake()
     {
-
+        inventory = new Inventory();
     }
 
     void Update()
@@ -38,7 +39,7 @@ public class Player : MonoBehaviour
     void CheckForNearbyItems()
     {
         Vector3 playerForward = transform.forward;
-        
+
         // Abaikan sumbu Y
         Vector3 cameraForward = new(
             Camera.main.transform.forward.x,
@@ -71,25 +72,14 @@ public class Player : MonoBehaviour
     // Ambil item
     public void OnGrab()
     {
-        if (nearbyItem != null && currentItem == null)
+        try
         {
-            currentItem = nearbyItem;
-            nearbyItem = null;
-            currentItem.transform.position = handTransform.position;
-            currentItem.transform.parent = handTransform;
-            currentItem.GetComponent<Rigidbody>().isKinematic = true;
+            inventory.AddItem(nearbyItem.GetComponent<Item>());
+            Destroy(nearbyItem);
         }
-    }
-
-    // Jatuhkan item
-    public void OnDrop()
-    {
-        if (currentItem != null)
+        catch (Exception ex)
         {
-            currentItem.transform.parent = null;
-            currentItem.transform.rotation = Quaternion.identity;
-            currentItem.GetComponent<Rigidbody>().isKinematic = false;
-            currentItem = null;
+
         }
     }
 }
