@@ -240,7 +240,7 @@
                 {
                     "name": "",
                     "id": "e7c7dc69-d03a-46ae-a4a1-72ddc47bca7a",
-                    "path": "<Mouse>/leftButton",
+                    "path": "<Keyboard>/f",
                     "interactions": "",
                     "processors": "",
                     "groups": "KeyboardMouse",
