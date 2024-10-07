@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public static Player instance { get; private set; }
+
     [Header("Player Item Pickup")]
 
     [Tooltip("Posisi tangan (mengambil item)")]
@@ -27,6 +29,15 @@ public class Player : MonoBehaviour
 
     void Awake()
     {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
         inventory = new Inventory();
     }
 

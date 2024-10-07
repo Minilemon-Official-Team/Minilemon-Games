@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Inventory
 {
+    // Daftar item utama
     public List<Item> mainItems { get; private set; }
 
     public Inventory()
@@ -15,7 +16,7 @@ public class Inventory
     {
         ItemData data = item.data;
         int amount = item.amount;
-        foreach (var i in mainItems)
+        foreach (Item i in mainItems)
         {
             if (i.data == data && i.amount < data.maxStack)
             {
@@ -31,15 +32,11 @@ public class Inventory
                 }
             }
         }
-        if (mainItems.Count < mainItems.Capacity)
+        while (amount > 0 && mainItems.Count < mainItems.Capacity)
         {
-            while (amount > 0)
-            {
-                int toAdd = Mathf.Min(amount, data.maxStack);
-                mainItems.Add(new Item { data = data, amount = toAdd });
-                amount -= toAdd;
-            }
+            int toAdd = Mathf.Min(amount, data.maxStack);
+            mainItems.Add(new Item { data = data, amount = toAdd });
+            amount -= toAdd;
         }
-        Debug.Log(mainItems.Count);
     }
 }

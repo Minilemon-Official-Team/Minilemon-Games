@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <itemName>k__BackingField: Test Cube
   <icon>k__BackingField: {fileID: 0}
-  <maxStack>k__BackingField: 1
+  <maxStack>k__BackingField: 2
   <prefab>k__BackingField: {fileID: 0}
