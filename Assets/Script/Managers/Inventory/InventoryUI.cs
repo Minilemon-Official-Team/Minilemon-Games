@@ -15,7 +15,7 @@ public class InventoryUI : MonoBehaviour
     [field: SerializeField, Tooltip("Aksi input untuk inventory")]
     public InputActionMap actions { get; private set; } = new InputActionMap();
 
-    public static bool visible {get; private set;} = false;
+    public static bool visible { get; private set; } = false;
 
     void Awake()
     {
@@ -39,25 +39,34 @@ public class InventoryUI : MonoBehaviour
     // Perbarui inventory
     public void Refresh()
     {
-        foreach (Transform child in transform) {
+        foreach (Transform child in transform)
+        {
             Destroy(child.gameObject);
         }
 
-        foreach (Item i in Player.instance.inventory.mainItems)
+        for (int i = 0; i < Player.instance.inventory.mainItems.Count; i++)
         {
-            RectTransform newSlot = Instantiate(inventorySlotPrefab, transform).GetComponent<RectTransform>();
+            Item item = Player.instance.inventory.mainItems[i];
 
+            RectTransform newSlot = Instantiate(inventorySlotPrefab, transform).GetComponent<RectTransform>();
+            newSlot.GetComponent<InventorySlot>().slotNumber = i;
+
+            // Icon dan jumlah
             Image icon = newSlot.Find("Icon").GetComponent<Image>();
             TextMeshProUGUI amount = newSlot.Find("Amount").GetComponent<TextMeshProUGUI>();
 
-            icon.sprite = i.data.icon;
-            amount.text = i.amount == 1 ? "" : i.amount.ToString();
+            icon.sprite = item.data.icon;
+            amount.text = item.amount == 1 ? "" : item.amount.ToString();
         }
     }
 
     public void OnToggle(InputAction.CallbackContext context)
     {
         visible = !visible;
+
+        Cursor.visible = visible;
+        Cursor.lockState = visible ? CursorLockMode.Locked : CursorLockMode.None;
+
         transform.localScale = visible ? Vector3.one : Vector3.zero;
 
         Refresh();

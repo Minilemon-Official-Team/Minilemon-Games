@@ -38,5 +38,7 @@ public class Inventory
             mainItems.Add(new Item { data = data, amount = toAdd });
             amount -= toAdd;
         }
+        
+        InventoryUI.instance.Refresh();
     }
 }
