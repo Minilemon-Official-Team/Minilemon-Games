@@ -704,7 +704,7 @@ MonoBehaviour:
   itemLayer:
     serializedVersion: 2
     m_Bits: 1073741824
-  pickupRange: 10
+  pickupRange: 30
   pickupAngle: 30
 --- !u!1 &1763716304
 GameObject:
