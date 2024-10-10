@@ -118,5 +118,21 @@ MonoBehaviour:
     m_Name: Actions
     m_Id: 5ff854c6-a826-4e61-a07a-fab0c835f939
     m_Asset: {fileID: 0}
-    m_Actions: []
-    m_Bindings: []
+    m_Actions:
+    - m_Name: Toggle
+      m_Type: 1
+      m_ExpectedControlType: Button
+      m_Id: a0381eed-cbe7-48a1-b136-462cebd8382d
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Bindings:
+    - m_Name: 
+      m_Id: 6a602fc1-47d1-4396-8064-070d52e8c555
+      m_Path: <Keyboard>/i
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Toggle
+      m_Flags: 0

@@ -6,6 +6,7 @@ public class Inventory
 {
     // Daftar item utama
     public List<Item> mainItems { get; private set; }
+    public int selectedIndex;
 
     public Inventory()
     {
@@ -38,7 +39,14 @@ public class Inventory
             mainItems.Add(new Item { data = data, amount = toAdd });
             amount -= toAdd;
         }
-        
+
+        InventoryUI.instance.Refresh();
+    }
+
+    public void RemoveItemAt(int index)
+    {
+        mainItems.RemoveAt(index);
+
         InventoryUI.instance.Refresh();
     }
 }

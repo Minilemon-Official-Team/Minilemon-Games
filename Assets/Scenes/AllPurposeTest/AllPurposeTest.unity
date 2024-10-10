@@ -704,7 +704,7 @@ MonoBehaviour:
   itemLayer:
     serializedVersion: 2
     m_Bits: 1073741824
-  pickupRange: 5
+  pickupRange: 10
   pickupAngle: 30
 --- !u!1 &1763716304
 GameObject:
@@ -984,6 +984,38 @@ MonoBehaviour:
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
+--- !u!1 &2147397382 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5182757726809224984, guid: b55c417f71becef4fa1ef761d3ad44d4, type: 3}
+  m_PrefabInstance: {fileID: 5615165092484815186}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &2147397390
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2147397382}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 1
+  m_Constraints: 0
+  m_CollisionDetection: 2
 --- !u!1001 &4832608665705788387
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1019,66 +1051,6 @@ PrefabInstance:
     - target: {fileID: 3750715229314565591, guid: 3732758ee391dc14496cb0b1f576848b, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6379147177404527818, guid: 3732758ee391dc14496cb0b1f576848b, type: 3}
-      propertyPath: <actions>k__BackingField.m_Id
-      value: b6956b31-400a-4b04-acbe-9f8ec2ec92d5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6379147177404527818, guid: 3732758ee391dc14496cb0b1f576848b, type: 3}
-      propertyPath: <actions>k__BackingField.m_Name
-      value: Actions
-      objectReference: {fileID: 0}
-    - target: {fileID: 6379147177404527818, guid: 3732758ee391dc14496cb0b1f576848b, type: 3}
-      propertyPath: <actions>k__BackingField.m_Actions.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6379147177404527818, guid: 3732758ee391dc14496cb0b1f576848b, type: 3}
-      propertyPath: <actions>k__BackingField.m_Bindings.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6379147177404527818, guid: 3732758ee391dc14496cb0b1f576848b, type: 3}
-      propertyPath: <actions>k__BackingField.m_Actions.Array.data[0].m_Id
-      value: f20a0375-8f30-4985-a529-930b8f106888
-      objectReference: {fileID: 0}
-    - target: {fileID: 6379147177404527818, guid: 3732758ee391dc14496cb0b1f576848b, type: 3}
-      propertyPath: <actions>k__BackingField.m_Bindings.Array.data[0].m_Id
-      value: 505a8557-982e-4e74-a204-7eb75f4f31ad
-      objectReference: {fileID: 0}
-    - target: {fileID: 6379147177404527818, guid: 3732758ee391dc14496cb0b1f576848b, type: 3}
-      propertyPath: <actions>k__BackingField.m_Actions.Array.data[0].m_Name
-      value: Toggle
-      objectReference: {fileID: 0}
-    - target: {fileID: 6379147177404527818, guid: 3732758ee391dc14496cb0b1f576848b, type: 3}
-      propertyPath: <actions>k__BackingField.m_Actions.Array.data[0].m_Type
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6379147177404527818, guid: 3732758ee391dc14496cb0b1f576848b, type: 3}
-      propertyPath: <actions>k__BackingField.m_Bindings.Array.data[0].m_Path
-      value: <Keyboard>/i
-      objectReference: {fileID: 0}
-    - target: {fileID: 6379147177404527818, guid: 3732758ee391dc14496cb0b1f576848b, type: 3}
-      propertyPath: <actions>k__BackingField.m_Bindings.Array.data[0].m_Action
-      value: Toggle
-      objectReference: {fileID: 0}
-    - target: {fileID: 6379147177404527818, guid: 3732758ee391dc14496cb0b1f576848b, type: 3}
-      propertyPath: <actions>k__BackingField.m_SingletonActionBindings.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6379147177404527818, guid: 3732758ee391dc14496cb0b1f576848b, type: 3}
-      propertyPath: <actions>k__BackingField.m_SingletonActionBindings.Array.data[0].m_Id
-      value: 76e46687-8584-4336-b7f4-f306f7566246
-      objectReference: {fileID: 0}
-    - target: {fileID: 6379147177404527818, guid: 3732758ee391dc14496cb0b1f576848b, type: 3}
-      propertyPath: <actions>k__BackingField.m_Actions.Array.data[0].m_ExpectedControlType
-      value: Button
-      objectReference: {fileID: 0}
-    - target: {fileID: 6379147177404527818, guid: 3732758ee391dc14496cb0b1f576848b, type: 3}
-      propertyPath: <actions>k__BackingField.m_SingletonActionBindings.Array.data[0].m_Path
-      value: <Keyboard>/i
-      objectReference: {fileID: 0}
-    - target: {fileID: 6379147177404527818, guid: 3732758ee391dc14496cb0b1f576848b, type: 3}
-      propertyPath: <actions>k__BackingField.m_SingletonActionBindings.Array.data[0].m_Action
-      value: Actions
       objectReference: {fileID: 0}
     - target: {fileID: 6519291052889759019, guid: 3732758ee391dc14496cb0b1f576848b, type: 3}
       propertyPath: m_Pivot.x
@@ -1176,7 +1148,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3902456249161590982, guid: b55c417f71becef4fa1ef761d3ad44d4, type: 3}
       propertyPath: amount
-      value: 1
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5182757726809224984, guid: b55c417f71becef4fa1ef761d3ad44d4, type: 3}
       propertyPath: m_Name
@@ -1225,7 +1197,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5182757726809224984, guid: b55c417f71becef4fa1ef761d3ad44d4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2147397390}
   m_SourcePrefab: {fileID: 100100000, guid: b55c417f71becef4fa1ef761d3ad44d4, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

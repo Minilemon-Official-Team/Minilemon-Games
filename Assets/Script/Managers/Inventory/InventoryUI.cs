@@ -33,7 +33,7 @@ public class InventoryUI : MonoBehaviour
 
         // Input action
         actions.Enable();
-        actions.FindAction("Toggle").performed += OnToggle;
+        actions.FindAction("Toggle").performed += _ => Toggle();
     }
 
     // Perbarui inventory
@@ -46,29 +46,23 @@ public class InventoryUI : MonoBehaviour
 
         for (int i = 0; i < Player.instance.inventory.mainItems.Count; i++)
         {
-            Item item = Player.instance.inventory.mainItems[i];
-
-            RectTransform newSlot = Instantiate(inventorySlotPrefab, transform).GetComponent<RectTransform>();
-            newSlot.GetComponent<InventorySlot>().slotNumber = i;
-
-            // Icon dan jumlah
-            Image icon = newSlot.Find("Icon").GetComponent<Image>();
-            TextMeshProUGUI amount = newSlot.Find("Amount").GetComponent<TextMeshProUGUI>();
-
-            icon.sprite = item.data.icon;
-            amount.text = item.amount == 1 ? "" : item.amount.ToString();
+            InventorySlot newSlot = Instantiate(inventorySlotPrefab, transform).GetComponent<InventorySlot>();
+            newSlot.item = Player.instance.inventory.mainItems[i];
+            newSlot.index = i;
         }
     }
 
-    public void OnToggle(InputAction.CallbackContext context)
+    public void Toggle()
     {
         visible = !visible;
 
         Cursor.visible = visible;
-        Cursor.lockState = visible ? CursorLockMode.Locked : CursorLockMode.None;
+        Cursor.lockState = visible ? CursorLockMode.None : CursorLockMode.Locked;
 
         transform.localScale = visible ? Vector3.one : Vector3.zero;
 
         Refresh();
     }
+
+    
 }

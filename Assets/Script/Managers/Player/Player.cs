@@ -25,6 +25,7 @@ public class Player : MonoBehaviour
     [SerializeField, Range(0, 45)] float pickupAngle = 30f;
 
     GameObject nearbyItem;
+    GameObject handItem;
     public Inventory inventory { get; private set; }
 
     void Awake()
@@ -90,7 +91,36 @@ public class Player : MonoBehaviour
         }
         catch (Exception ex)
         {
-
+            Debug.LogException(ex);
         }
+    }
+
+    public void SetHand(Item item)
+    {
+        if (handItem != null)
+        {
+            Destroy(handItem);
+        }
+
+        handItem = Instantiate(item.data.prefab, handTransform);
+        
+        handItem.GetComponent<Item>().amount = item.amount;
+        handItem.GetComponent<Item>().data = item.data;
+    }
+
+    // Jatuhkan Item
+    public void OnDrop()
+    {
+        if (handItem == null)
+        {
+            return;
+        }
+
+        inventory.RemoveItemAt(inventory.selectedIndex);
+
+        handItem.transform.parent = null;
+        handItem.AddComponent<Rigidbody>();
+
+        handItem = null;
     }
 }
