@@ -1540,7 +1540,7 @@ GameObject:
   m_Layer: 0
   m_Name: Char_Togar
   m_TagString: Player
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1597,7 +1597,7 @@ MonoBehaviour:
   pushLayers:
     serializedVersion: 2
     m_Bits: 0
-  canPush: 0
+  canPush: 1
   strength: 1.1
 --- !u!114 &919132148593868497
 MonoBehaviour:
@@ -1611,8 +1611,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26e54e5a728a9234ab24fcf1460ed8a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 2
-  SprintSpeed: 5.335
+  MoveSpeed: 1.25
+  SprintSpeed: 2.5
   RotationSmoothTime: 0.12
   SpeedChangeRate: 10
   LandingAudioClip: {fileID: 8300000, guid: ff697d3070687ce4583faa0561a145a2, type: 3}
@@ -1634,10 +1634,10 @@ MonoBehaviour:
   FallTimeout: 0.15
   Grounded: 0
   GroundedOffset: 0
-  GroundedRadius: 0.09
+  GroundedRadius: 0.25
   GroundLayers:
     serializedVersion: 2
-    m_Bits: 9
+    m_Bits: 8
   CinemachineCameraTarget: {fileID: 154539499}
   TopClamp: 70
   BottomClamp: -30
@@ -1692,13 +1692,13 @@ CharacterController:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Height: 2
-  m_Radius: 0.9
+  m_Height: 2.06
+  m_Radius: 0.84
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 1.1, z: 0}
+  m_Center: {x: 0, y: 1.17, z: 0}
 --- !u!95 &919132148593868500
 Animator:
   serializedVersion: 5
