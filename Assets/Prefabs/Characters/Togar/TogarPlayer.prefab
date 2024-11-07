@@ -19141,9 +19141,9 @@ MonoBehaviour:
   Gravity: -15
   JumpTimeout: 0.3
   FallTimeout: 0.15
-  Grounded: 0
+  Grounded: 1
   GroundedOffset: 0
-  GroundedRadius: 0.25
+  GroundedRadius: 0.42
   GroundLayers:
     serializedVersion: 2
     m_Bits: 8
