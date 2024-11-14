@@ -1,7 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using System;
 using UnityEngine;
+using StarterAssets;
+using Cinemachine;
 
 public class Player : MonoBehaviour
 {
@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
 
     [Tooltip("Sudut yang diperbolehkan untuk diambil")]
     [SerializeField, Range(0, 45)] float pickupAngle = 30f;
-
+    
     GameObject nearbyItem;
     GameObject handItem;
     public Inventory inventory { get; private set; }
@@ -40,8 +40,20 @@ public class Player : MonoBehaviour
         }
 
         inventory = new Inventory();
+
+        InitializeComponents();
     }
 
+
+    void InitializeComponents()
+    {
+        CinemachineVirtualCamera camera = GameObject.Find("PlayerFollowCamera").GetComponent<CinemachineVirtualCamera>();
+        
+        Transform cameraRoot = GetComponent<ThirdPersonController>().CinemachineCameraTarget.transform;
+
+        camera.LookAt = cameraRoot;
+        camera.Follow = cameraRoot;
+    }
     void Update()
     {
         CheckForNearbyItems();
