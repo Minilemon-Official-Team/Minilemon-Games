@@ -154,7 +154,7 @@ MonoBehaviour:
   CameraDistance: 5
   CameraCollisionFilter:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 1083211903
   IgnoreTag: Player
   CameraRadius: 0.25
   DampingIntoCollision: 0.5
