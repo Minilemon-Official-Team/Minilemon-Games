@@ -30,13 +30,13 @@ public class Player : MonoBehaviour
 
     void Awake()
     {
-        if (instance == null)
+        if (instance != null && instance != this)
         {
-            instance = this;
+            Destroy(gameObject);
         }
         else
         {
-            Destroy(gameObject);
+            instance = this;
         }
 
         inventory = new Inventory();
