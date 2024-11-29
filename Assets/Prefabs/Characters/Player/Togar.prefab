@@ -5262,7 +5262,7 @@ MonoBehaviour:
   headTransform: {fileID: 2802041682963542565}
   itemLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1073741824
   pickupRange: 30
   pickupAngle: 30
 --- !u!1 &2412970448036547558

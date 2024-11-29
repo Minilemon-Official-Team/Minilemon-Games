@@ -26,11 +26,13 @@ public class Player : MonoBehaviour
     
     GameObject nearbyItem;
     GameObject handItem;
+
     public Inventory inventory { get; private set; }
+    
 
     void Awake()
     {
-        if (instance != null && instance != this)
+        if (instance != null)
         {
             Destroy(gameObject);
         }
@@ -98,8 +100,7 @@ public class Player : MonoBehaviour
     {
         try
         {
-            inventory.AddItem(nearbyItem.GetComponent<Item>());
-            Destroy(nearbyItem);
+            nearbyItem.GetComponent<Collectible>().Pick();
         }
         catch (Exception ex)
         {
@@ -115,9 +116,10 @@ public class Player : MonoBehaviour
         }
 
         handItem = Instantiate(item.data.prefab, handTransform);
+        handItem.transform.localScale = Vector3.one * 0.01f;
         
-        handItem.GetComponent<Item>().amount = item.amount;
-        handItem.GetComponent<Item>().data = item.data;
+        handItem.GetComponent<Collectible>().item.amount = item.amount;
+        handItem.GetComponent<Collectible>().item.data = item.data;
     }
 
     // Jatuhkan Item
