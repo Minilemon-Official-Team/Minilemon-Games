@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad7c92bcf3e61ab4b9c8d876fee66e25, type: 3}
   m_Name: CollectItemMission
   m_EditorClassIdentifier: 
-  <timeLimit>k__BackingField: 0
-  <item>k__BackingField: {fileID: 0}
-  <target>k__BackingField: 0
+  <timeLimit>k__BackingField: 30
+  <item>k__BackingField: {fileID: 11400000, guid: 758f15f9ea00cf545b0105f78bccbe4b, type: 2}
+  <target>k__BackingField: 8
