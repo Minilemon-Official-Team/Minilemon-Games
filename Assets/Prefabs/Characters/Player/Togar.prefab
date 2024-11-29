@@ -5060,6 +5060,7 @@ GameObject:
   - component: {fileID: 2785376927503625961}
   - component: {fileID: 8122809622078784957}
   - component: {fileID: 986790942127334683}
+  - component: {fileID: 5691335813733536314}
   m_Layer: 6
   m_Name: Togar
   m_TagString: Player
@@ -5265,6 +5266,20 @@ MonoBehaviour:
     m_Bits: 1073741824
   pickupRange: 30
   pickupAngle: 30
+  <missionManager>k__BackingField: {fileID: 5691335813733536314}
+--- !u!114 &5691335813733536314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2411901262478311342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a16f26910c7fecf46b5b753c19fc52ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <missions>k__BackingField: []
 --- !u!1 &2412970448036547558
 GameObject:
   m_ObjectHideFlags: 0

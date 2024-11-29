@@ -28,7 +28,9 @@ public class Player : MonoBehaviour
     GameObject handItem;
 
     public Inventory inventory { get; private set; }
-    
+
+    [field:SerializeField]
+    public MissionManager missionManager {get; private set;}
 
     void Awake()
     {
