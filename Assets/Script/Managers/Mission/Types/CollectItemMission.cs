@@ -56,4 +56,11 @@ public class CollectItemMission : Mission
         isRunning = false;
         EventBus.ItemCollected.RemoveListener(OnItemCollected);
     }
+
+    public override string GetDescription()
+    {
+        string text = $"Kumpulkan {target} {item.name}";
+        if (timeLimit > 0) text += $" dalam waktu {timeLimit} detik";
+        return text;
+    }
 }

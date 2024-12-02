@@ -235,7 +235,7 @@ GameObject:
   - component: {fileID: 342773957}
   m_Layer: 5
   m_Name: UI
-  m_TagString: Untagged
+  m_TagString: UI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -298,7 +298,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -1227,7 +1227,7 @@ GameObject:
   - component: {fileID: 1316660830}
   - component: {fileID: 1316660829}
   - component: {fileID: 1316660828}
-  - component: {fileID: 1316660827}
+  - component: {fileID: 1316660833}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -1235,20 +1235,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1316660827
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1316660826}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f413937b119ec4e4a94baa87783676d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  missionsToGive:
-  - {fileID: 11400000, guid: 3ceceb1772c502b46a14f7d017888b55, type: 2}
 --- !u!135 &1316660828
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1358,6 +1344,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1316660833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1316660826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f413937b119ec4e4a94baa87783676d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <missionsToGive>k__BackingField:
+  - {fileID: 11400000, guid: 3ceceb1772c502b46a14f7d017888b55, type: 2}
+  missionDisplay: {fileID: 7636415273944536856, guid: 653a1a3aa5fd5a9469538f0cf51a7153, type: 3}
 --- !u!1001 &1440989235
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1971,6 +1972,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Inventory
       objectReference: {fileID: 0}
+    - target: {fileID: 1474056834780487587, guid: 3732758ee391dc14496cb0b1f576848b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3750715229314565591, guid: 3732758ee391dc14496cb0b1f576848b, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2028,6 +2033,18 @@ PrefabInstance:
       value: 900
       objectReference: {fileID: 0}
     - target: {fileID: 6519291052889759019, guid: 3732758ee391dc14496cb0b1f576848b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6519291052889759019, guid: 3732758ee391dc14496cb0b1f576848b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6519291052889759019, guid: 3732758ee391dc14496cb0b1f576848b, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6519291052889759019, guid: 3732758ee391dc14496cb0b1f576848b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -2074,6 +2091,10 @@ PrefabInstance:
     - target: {fileID: 6519291052889759019, guid: 3732758ee391dc14496cb0b1f576848b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6519291052889759019, guid: 3732758ee391dc14496cb0b1f576848b, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:

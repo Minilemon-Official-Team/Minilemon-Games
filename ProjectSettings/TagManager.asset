@@ -13,6 +13,7 @@ TagManager:
   - Animal
   - PickUp
   - Water
+  - UI
   layers:
   - Default
   - TransparentFX

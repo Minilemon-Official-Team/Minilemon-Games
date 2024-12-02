@@ -21,4 +21,5 @@ public abstract class Mission : ScriptableObject
     public virtual void Start() {}
     public virtual void Update() {}
     public virtual void End() {}
+    public virtual string GetDescription() => "";
 }

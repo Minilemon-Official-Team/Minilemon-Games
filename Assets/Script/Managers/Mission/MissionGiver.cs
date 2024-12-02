@@ -3,25 +3,28 @@ using UnityEngine;
 
 public class MissionGiver : MonoBehaviour
 {
+    [field:SerializeField]
+    public List<Mission> missionsToGive {get; private set;}
+
     [SerializeField]
-    private List<Mission> missionsToGive;
+    private GameObject missionDisplay;
 
     bool missionGiven;
 
     public void GiveMission()
     {
+        missionGiven = true;
+
         Player.instance.missionManager.missions.AddRange(missionsToGive);
         EventBus.InvokeMissionAssigned();
     }
 
     void OnTriggerEnter(Collider collider)
     {
-        if (collider.CompareTag("Player") && !missionGiven)
+        if (collider.CompareTag("Player") && !missionGiven && MissionDisplay.instance == null)
         {
-            GiveMission();
-            missionGiven = true;
-
-            Debug.Log("Mission start!");
+            GameObject display = Instantiate(missionDisplay, GameObject.FindGameObjectWithTag("UI").transform);
+            display.GetComponent<MissionDisplay>().missionGiver = this;
         }
     }
 }
