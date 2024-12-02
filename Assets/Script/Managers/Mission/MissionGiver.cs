@@ -10,13 +10,7 @@ public class MissionGiver : MonoBehaviour
 
     public void GiveMission()
     {
-        foreach (Mission mission in missionsToGive)
-        {
-            Mission copy = Instantiate(mission);
-            Player.instance.missionManager.missions.Add(copy);
-        }
-
-        
+        Player.instance.missionManager.missions.AddRange(missionsToGive);
         EventBus.InvokeMissionAssigned();
     }
 

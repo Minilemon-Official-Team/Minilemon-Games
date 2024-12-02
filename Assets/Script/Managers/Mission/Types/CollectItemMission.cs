@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "CollectItemMission", menuName = "Missions/Collect Item Mission")]
@@ -9,6 +10,7 @@ public class CollectItemMission : Mission
     [field: SerializeField, Min(1), Tooltip("Banyak item yang harus didapatkan")]
     public int target { get; private set; }
 
+    [field: NonSerialized]
     public int progress { get; private set; }
 
     void OnItemCollected(Item item)
@@ -26,7 +28,6 @@ public class CollectItemMission : Mission
             MissionCompleted?.Invoke();
             
             End();
-            Destroy(this);
         }
     }
 
@@ -41,7 +42,6 @@ public class CollectItemMission : Mission
         if (!isStarted) return;
 
         if (timeLimit > 0) timeElapsed += Time.deltaTime;
-
         if (timeElapsed >= timeLimit)
         {
             Debug.Log("Mission failed: time's up!");
@@ -50,7 +50,6 @@ public class CollectItemMission : Mission
             MissionFailed?.Invoke();
             
             End();
-            Destroy(this);
         }
     }
 

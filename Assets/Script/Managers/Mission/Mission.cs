@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -5,9 +6,11 @@ public abstract class Mission : ScriptableObject
 {
     [field: SerializeField, Tooltip("Batas waktu misi dalam detik, 0 = tidak ada batas waktu")]
     public virtual float timeLimit { get; protected set; } = 0;
-
+    
+    [field: NonSerialized]
     public virtual float timeElapsed { get; protected set; } = 0;
 
+    [field: NonSerialized]
     public virtual bool isStarted { get; protected set; } = false;
 
     // Events
