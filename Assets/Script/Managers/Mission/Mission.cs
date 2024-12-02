@@ -11,7 +11,7 @@ public abstract class Mission : ScriptableObject
     public virtual float timeElapsed { get; protected set; } = 0;
 
     [field: NonSerialized]
-    public virtual bool isStarted { get; protected set; } = false;
+    public virtual bool isRunning { get; protected set; } = false;
 
     // Events
     public virtual UnityEvent MissionCompleted { get; protected set; } = new();

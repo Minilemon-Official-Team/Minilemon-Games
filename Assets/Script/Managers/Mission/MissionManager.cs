@@ -30,7 +30,7 @@ public class MissionManager : MonoBehaviour
     {
         foreach (Mission mission in missions)
         {
-            if (!mission.isStarted) mission.Start();
+            if (!mission.isRunning) mission.Start();
         }
     }
 }

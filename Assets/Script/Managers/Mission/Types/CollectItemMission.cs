@@ -22,40 +22,38 @@ public class CollectItemMission : Mission
 
         if (progress >= target)
         {
+            End();
             Debug.Log("Mission completed!");
 
             EventBus.InvokeMissionCompleted(this);
             MissionCompleted?.Invoke();
-            
-            End();
         }
     }
 
     public override void Start()
     {
         EventBus.ItemCollected.AddListener(OnItemCollected);
-        isStarted = true;
+        isRunning = true;
     }
 
     public override void Update()
     {
-        if (!isStarted) return;
+        if (!isRunning) return;
 
         if (timeLimit > 0) timeElapsed += Time.deltaTime;
         if (timeElapsed >= timeLimit)
         {
+            End();
             Debug.Log("Mission failed: time's up!");
 
             EventBus.InvokeMissionFailed(this);
             MissionFailed?.Invoke();
-            
-            End();
         }
     }
 
     public override void End()
     {
+        isRunning = false;
         EventBus.ItemCollected.RemoveListener(OnItemCollected);
-        isStarted = false;
     }
 }
