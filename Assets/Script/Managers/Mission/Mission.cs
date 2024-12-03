@@ -16,7 +16,6 @@ public abstract class Mission : ScriptableObject
     // Events
     public virtual UnityEvent MissionCompleted { get; protected set; } = new();
     public virtual UnityEvent MissionFailed { get; protected set; } = new();
-    public virtual UnityEvent MissionProgress { get; protected set; } = new();
     
     public virtual void Start() {}
     public virtual void Update() {}

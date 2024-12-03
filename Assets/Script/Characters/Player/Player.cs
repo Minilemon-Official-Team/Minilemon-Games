@@ -29,9 +29,6 @@ public class Player : MonoBehaviour
 
     public Inventory inventory { get; private set; }
 
-    [field:SerializeField]
-    public MissionManager missionManager {get; private set;}
-
     void Awake()
     {
         if (instance != null)

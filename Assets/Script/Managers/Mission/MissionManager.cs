@@ -3,14 +3,30 @@ using UnityEngine;
 
 public class MissionManager : MonoBehaviour
 {
-    [field: SerializeField]
+    public static MissionManager instance { get; private set; }
+
     public List<Mission> missions { get; private set; } = new();
+
+    [SerializeField]
+    private GameObject missionDisplay;
+
+    [SerializeField]
+    private GameObject missionPanel;
 
     void Awake()
     {
-        EventBus.MissionCompleted.AddListener(RemoveMission);
-        EventBus.MissionFailed.AddListener(RemoveMission);
-        EventBus.MissionAssigned.AddListener(StartMission);
+        if (instance == null)
+        {
+            instance = this;
+
+            EventBus.MissionCompleted.AddListener(RemoveMission);
+            EventBus.MissionFailed.AddListener(RemoveMission);
+            EventBus.MissionStarted.AddListener(StartMission);
+            EventBus.MissionsGiven.AddListener(ShowMissions);
+        }
+
+        else Destroy(gameObject);
+
     }
 
     void Update()
@@ -30,7 +46,20 @@ public class MissionManager : MonoBehaviour
     {
         foreach (Mission mission in missions)
         {
-            if (!mission.isRunning) mission.Start();
+            if (!mission.isRunning)
+            {
+                GameObject panel = Instantiate(missionPanel, GameObject.Find("Missions").transform);
+                panel.GetComponent<MissionPanel>().mission = mission;
+                
+                mission.Start();
+            }
         }
+    }
+
+    void ShowMissions(MissionGiver giver)
+    {
+        GameObject display = Instantiate(missionDisplay, GameObject.FindGameObjectWithTag("UI").transform);
+        display.GetComponent<MissionDisplay>().missionGiver = giver;
+
     }
 }
