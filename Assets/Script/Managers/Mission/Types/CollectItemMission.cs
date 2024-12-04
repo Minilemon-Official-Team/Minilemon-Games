@@ -32,8 +32,10 @@ public class CollectItemMission : Mission
 
     public override void Start()
     {
+        base.Start();
+        
+        progress = 0;
         EventBus.ItemCollected.AddListener(OnItemCollected);
-        isRunning = true;
     }
 
     public override void Update()

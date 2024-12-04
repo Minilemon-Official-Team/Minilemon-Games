@@ -6,11 +6,8 @@ public class MissionGiver : MonoBehaviour
     [field:SerializeField]
     public List<Mission> missionsToGive {get; private set;}
 
-    bool missionGiven;
-
     public void GiveMission()
     {
-        missionGiven = true;
 
         MissionManager.instance.missions.AddRange(missionsToGive);
         EventBus.InvokeMissionStarted();
@@ -18,7 +15,7 @@ public class MissionGiver : MonoBehaviour
 
     void OnTriggerEnter(Collider collider)
     {
-        if (collider.CompareTag("Player") && !missionGiven && MissionDisplay.instance == null)
+        if (collider.CompareTag("Player") && MissionManager.instance.missions.Count == 0 && MissionDisplay.instance == null)
         {
             EventBus.InvokeMissionsGiven(this);
         }
