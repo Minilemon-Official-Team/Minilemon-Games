@@ -28,7 +28,6 @@ public class Player : MonoBehaviour
     GameObject handItem;
 
     public Inventory inventory { get; private set; }
-    
 
     void Awake()
     {
