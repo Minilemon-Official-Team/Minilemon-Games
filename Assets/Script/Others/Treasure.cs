@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Treasure : Collectible
@@ -10,14 +11,29 @@ public class Treasure : Collectible
     [SerializeField, Tooltip("Butuh kunci atau tidak?")]
     bool needKey;
 
+    [SerializeField, Tooltip("Item yang akan diambil")]
+    TextMeshProUGUI keyWarning;
+
     [SerializeField]
     Animator anim;
 
+    bool isOpened = false;
+
     void OnTriggerEnter(Collider other)
     {
+        if (isOpened) return;
         if (other.CompareTag("Player"))
         {
             display.SetActive(true);
+
+            if (Player.instance.inventory.keys > 0 || !needKey)
+            {
+                keyWarning.text = "Tekan F untuk buka";
+            }
+            else
+            {
+                keyWarning.text = "Cari kuncinya dulu ya";
+            }
         }
     }
 
@@ -31,18 +47,18 @@ public class Treasure : Collectible
 
     public override void Pick()
     {
-        if (!needKey)
-        {
-            EventBus.InvokeItemCollected(item);
-            anim.SetBool("OpenChest", true);
-        }
-        else
-        {
-            if (Player.instance.inventory.UseKey())
-            {
-                EventBus.InvokeItemCollected(item);
-                anim.SetBool("OpenChest", true);
-            }
-        }
+        if (isOpened) return;
+
+        if (!needKey) OpenChest();
+        else if (Player.instance.inventory.UseKey()) OpenChest();
+    }
+
+    void OpenChest()
+    {
+        EventBus.InvokeItemCollected(item);
+        display.SetActive(false);
+        anim.SetBool("OpenChest", true);
+
+        isOpened = true;
     }
 }

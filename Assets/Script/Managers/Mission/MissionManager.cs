@@ -7,6 +7,8 @@ public class MissionManager : MonoBehaviour
 
     public List<Mission> missions { get; private set; } = new();
 
+    GameObject missionPrefab;
+
     [SerializeField]
     private GameObject missionDisplay;
 
@@ -25,7 +27,6 @@ public class MissionManager : MonoBehaviour
             EventBus.MissionStarted.AddListener(StartMission);
             EventBus.MissionsGiven.AddListener(ShowMissions);
         }
-
     }
 
     void Update()

@@ -93,7 +93,7 @@ public class Player : MonoBehaviour
     {
         try
         {
-            nearbyItem.GetComponent<Collectible>().Pick();
+            nearbyItem.SendMessage("Pick");
         }
         catch (Exception ex)
         {

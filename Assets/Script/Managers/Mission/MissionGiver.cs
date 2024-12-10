@@ -3,8 +3,11 @@ using UnityEngine;
 
 public class MissionGiver : MonoBehaviour
 {
-    [field:SerializeField]
+    [field:SerializeField, Tooltip("Misi yang akan diberikan")]
     public List<Mission> missionsToGive {get; private set;}
+
+    [field:SerializeField, Tooltip("Yang akan dispawn saat misi berjalan")]
+    public GameObject missionPrefab {get; private set;}
 
     public void GiveMission()
     {
