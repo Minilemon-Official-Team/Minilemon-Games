@@ -8,7 +8,6 @@ public class MissionGiver : MonoBehaviour
 
     public void GiveMission()
     {
-
         MissionManager.instance.missions.AddRange(missionsToGive);
         EventBus.InvokeMissionStarted();
     }

@@ -15,7 +15,8 @@ public class MissionManager : MonoBehaviour
 
     void Awake()
     {
-        if (instance == null)
+        if (instance != null && instance != this) Destroy(gameObject);
+        else
         {
             instance = this;
 
@@ -24,8 +25,6 @@ public class MissionManager : MonoBehaviour
             EventBus.MissionStarted.AddListener(StartMission);
             EventBus.MissionsGiven.AddListener(ShowMissions);
         }
-
-        else Destroy(gameObject);
 
     }
 
@@ -50,7 +49,7 @@ public class MissionManager : MonoBehaviour
             {
                 GameObject panel = Instantiate(missionPanel, GameObject.Find("Missions").transform);
                 panel.GetComponent<MissionPanel>().mission = mission;
-                
+
                 mission.Start();
             }
         }
@@ -60,6 +59,16 @@ public class MissionManager : MonoBehaviour
     {
         GameObject display = Instantiate(missionDisplay, GameObject.FindGameObjectWithTag("UI").transform);
         display.GetComponent<MissionDisplay>().missionGiver = giver;
-
     }
+
+    void OnDestroy()
+    {
+        foreach (Mission mission in missions)
+        {
+            mission.End();
+        }
+    }
+
+    [ContextMenu("Test Mission")]
+    void GetMissions() => Debug.Log(missions.Count);
 }

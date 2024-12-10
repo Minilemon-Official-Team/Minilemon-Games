@@ -4,7 +4,7 @@ using UnityEngine.Events;
 
 public abstract class Mission : ScriptableObject
 {
-    [field: SerializeField, Tooltip("Batas waktu misi dalam detik, 0 = tidak ada batas waktu")]
+    [field: SerializeField, Tooltip("Batas waktu misi dalam detik, 0 = tidak ada batas waktu"), Min(0)]
     public virtual float timeLimit { get; protected set; } = 0;
 
     [field: NonSerialized]
@@ -23,7 +23,26 @@ public abstract class Mission : ScriptableObject
         isRunning = true;
     }
 
-    public virtual void Update() { }
-    public virtual void End() { }
-    public virtual string GetDescription() => "";
+    public virtual void Update()
+    {
+        if (!isRunning) return;
+        if (timeLimit == 0) return;
+
+        if (timeLimit > 0) timeElapsed += Time.deltaTime;
+        if (timeElapsed >= timeLimit)
+        {
+            End();
+            Debug.Log("Mission failed: time's up!");
+
+            EventBus.InvokeMissionFailed(this);
+            MissionFailed?.Invoke();
+        }
+    }
+    
+    public virtual void End()
+    {
+        isRunning = false;
+    }
+
+    public abstract string GetDescription();
 }

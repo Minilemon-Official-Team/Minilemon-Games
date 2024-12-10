@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Collect 10 Treasure
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3e5a52f5ceb0b08448df5044b28bac1b, type: 2}
   m_sharedMaterial: {fileID: -6596596411277796853, guid: 3e5a52f5ceb0b08448df5044b28bac1b, type: 2}

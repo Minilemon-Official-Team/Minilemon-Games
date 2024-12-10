@@ -6,7 +6,7 @@ public class Collectible : MonoBehaviour
 {
     public Item item;
 
-    public void Pick()
+    public virtual void Pick()
     {
         EventBus.InvokeItemCollected(item);
         

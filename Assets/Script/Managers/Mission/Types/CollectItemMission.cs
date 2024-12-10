@@ -38,24 +38,10 @@ public class CollectItemMission : Mission
         EventBus.ItemCollected.AddListener(OnItemCollected);
     }
 
-    public override void Update()
-    {
-        if (!isRunning) return;
-
-        if (timeLimit > 0) timeElapsed += Time.deltaTime;
-        if (timeElapsed >= timeLimit)
-        {
-            End();
-            Debug.Log("Mission failed: time's up!");
-
-            EventBus.InvokeMissionFailed(this);
-            MissionFailed?.Invoke();
-        }
-    }
-
     public override void End()
     {
-        isRunning = false;
+        base.End();
+        
         EventBus.ItemCollected.RemoveListener(OnItemCollected);
     }
 

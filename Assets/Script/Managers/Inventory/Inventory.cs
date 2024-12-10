@@ -6,6 +6,8 @@ public class Inventory
 {
     // Daftar item utama
     public List<Item> mainItems { get; private set; }
+    public int keys { get; private set; }
+
     public int selectedIndex;
 
     public Inventory()
@@ -48,5 +50,16 @@ public class Inventory
         mainItems.RemoveAt(index);
 
         InventoryUI.instance.Refresh();
+    }
+
+    public void AddKey() => keys++;
+    public bool UseKey()
+    {
+        if (keys > 0) 
+        {
+            keys--;
+            return true;
+        }
+        return false;
     }
 }

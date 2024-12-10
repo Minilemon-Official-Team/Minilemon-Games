@@ -14,21 +14,15 @@ public class MissionDisplay : MonoBehaviour
 
     void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        if (instance != null && instance != this) Destroy(gameObject);
+        else instance = this;
     }
 
     void Start()
     {
         Debug.Log(missionGiver);
 
-        foreach(Mission mission in missionGiver.missionsToGive)
+        foreach (Mission mission in missionGiver.missionsToGive)
         {
             missionDescription.text += mission.GetDescription() + "\n";
         }
