@@ -67,8 +67,9 @@ public class Player : MonoBehaviour
         );
 
         // Raycast
-        Physics.Raycast(
+        Physics.SphereCast(
             new Ray(headTransform.position, Camera.main.transform.forward),
+            0.25f,
             out RaycastHit hit,
             pickupRange,
             itemLayer,
