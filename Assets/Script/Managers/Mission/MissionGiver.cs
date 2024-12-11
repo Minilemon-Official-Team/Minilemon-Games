@@ -17,7 +17,7 @@ public class MissionGiver : MonoBehaviour
 
     void OnTriggerEnter(Collider collider)
     {
-        if (collider.CompareTag("Player") && MissionManager.instance.missions.Count == 0 && MissionDisplay.instance == null)
+        if (collider.CompareTag("Player") && MissionManager.instance.missions.Count == 0 && !Popup.isOpened)
         {
             EventBus.InvokeMissionsGiven(this);
         }

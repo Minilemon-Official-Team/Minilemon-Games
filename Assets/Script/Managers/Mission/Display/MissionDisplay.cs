@@ -5,21 +5,15 @@ using UnityEngine;
 
 public class MissionDisplay : MonoBehaviour
 {
-    public static MissionDisplay instance { get; private set; }
-
     public MissionGiver missionGiver { private get; set; }
 
     [SerializeField]
     TextMeshProUGUI missionDescription;
 
-    void Awake()
-    {
-        if (instance != null && instance != this) Destroy(gameObject);
-        else instance = this;
-    }
-
     void Start()
     {
+        Popup.Open();
+
         Debug.Log(missionGiver);
 
         foreach (Mission mission in missionGiver.missionsToGive)
@@ -30,12 +24,16 @@ public class MissionDisplay : MonoBehaviour
 
     public void AcceptMission()
     {
+        Popup.Close();
+
         missionGiver.GiveMission();
         Destroy(gameObject);
     }
 
     public void DeclineMission()
     {
+        Popup.Close();
+
         Destroy(gameObject);
     }
 }

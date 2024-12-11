@@ -102,7 +102,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void OnInteract()
+    public void OnInteraction()
     {
         try
         {

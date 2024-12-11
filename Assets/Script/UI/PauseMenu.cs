@@ -19,9 +19,13 @@ public class PauseMenu : MonoBehaviour
 
     public void Pause()
     {
+        if (GameObject.FindGameObjectsWithTag("Popup").Length > 0) return;
+
         pauseShown = true;
         Time.timeScale = 0;
         transform.localScale = Vector3.one;
+
+        Popup.Open();
     }
 
     public void ResumeGame()
@@ -29,11 +33,15 @@ public class PauseMenu : MonoBehaviour
         pauseShown = false;
         Time.timeScale = 1;
         transform.localScale = Vector3.zero;
+
+        Popup.Close();
     }
 
     public void ExitGame()
     {
         Time.timeScale = 1;
         SceneManager.LoadScene("Scenes/MainMenu/MainMenu");
+
+        Popup.isOpened = false;
     }
 }
