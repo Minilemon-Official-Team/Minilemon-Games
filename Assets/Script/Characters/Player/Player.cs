@@ -69,7 +69,7 @@ public class Player : MonoBehaviour
         // Raycast
         Physics.SphereCast(
             new Ray(headTransform.position, Camera.main.transform.forward),
-            0.25f,
+            0.5f,
             out RaycastHit hit,
             pickupRange,
             itemLayer,
@@ -95,6 +95,18 @@ public class Player : MonoBehaviour
         try
         {
             nearbyItem.SendMessage("Pick");
+        }
+        catch (Exception ex)
+        {
+            Debug.LogException(ex);
+        }
+    }
+
+    public void OnInteract()
+    {
+        try
+        {
+            nearbyItem.SendMessage("Interact");
         }
         catch (Exception ex)
         {

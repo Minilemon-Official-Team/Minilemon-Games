@@ -28,7 +28,7 @@ public class Treasure : Collectible
 
             if (Player.instance.inventory.keys > 0 || !needKey)
             {
-                keyWarning.text = "Tekan F untuk buka";
+                keyWarning.text = "Tekan E untuk buka";
             }
             else
             {
@@ -46,6 +46,11 @@ public class Treasure : Collectible
     }
 
     public override void Pick()
+    {
+        
+    }
+
+    public void Interact()
     {
         if (isOpened) return;
 
