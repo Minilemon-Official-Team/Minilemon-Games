@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Prefabs/UI/UI_InGame/heart.png.meta
 guid: 94761893aadfa374086b5cbea769dc9e
+========
+guid: fdb48af9691c0bc47ab51aed6cd0cf89
+>>>>>>>> main:Assets/Prefabs/UI/UI_InGame/InterectionTeasure.png.meta
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
