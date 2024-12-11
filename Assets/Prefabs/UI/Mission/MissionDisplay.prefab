@@ -680,9 +680,10 @@ GameObject:
   - component: {fileID: 6793661069316169336}
   - component: {fileID: 3058762820847961931}
   - component: {fileID: 4432571693120749550}
+  - component: {fileID: 4626792444253900300}
   m_Layer: 5
   m_Name: MissionDisplay
-  m_TagString: Untagged
+  m_TagString: Popup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -761,6 +762,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   missionDescription: {fileID: 264944293042121573}
+--- !u!114 &4626792444253900300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7636415273944536856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2034fb08e68f874ba561288fd9c18be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8023107915378706299
 GameObject:
   m_ObjectHideFlags: 0

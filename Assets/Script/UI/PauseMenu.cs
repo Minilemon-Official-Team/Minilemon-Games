@@ -19,7 +19,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Pause()
     {
-        if (GameObject.FindGameObjectsWithTag("Popup").Length > 0) return;
+        if (Popup.isOpened) return;
 
         pauseShown = true;
         Time.timeScale = 0;

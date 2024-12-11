@@ -1,7 +1,19 @@
 using UnityEngine;
 
-public static class Popup
+public class Popup : MonoBehaviour
 {
+    void Awake()
+    {
+        if (GameObject.FindGameObjectsWithTag("Popup").Length > 0)
+        {
+            Open();
+        }
+        else
+        {
+            Close();
+        }
+    }
+
     public static void Open()
     {
         if (isOpened) return;
