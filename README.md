@@ -9,7 +9,7 @@ Repository ini berisikan project files yang digunakan dalam pembuatan Minilemon 
 1. Fork repository ini terlebih dahulu dengan menekan tombol **Fork** di atas.
 2. Buka terminal atau command prompt.
 3. Lakukan cloning dengan perintah `git clone` diikuti dengan URL fork anda
-    > Link repository bisa dilihat dengan menekan tombol **Code** berwarna hijau di halaman repository fork anda, dan 
+    > Link repository bisa dilihat dengan menekan tombol **Code** berwarna hijau di halaman fork anda, dan mengcopy URL HTTPS yang sudah disediakan
 4. Buka **Unity Hub**, Tekan **Add > Add project from disk**, lalu pilih folder repository anda\
 (secara default nama folder sesuai dengan nama repository)
 
