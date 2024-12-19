@@ -35,7 +35,7 @@ Repository ini berisikan project files yang digunakan dalam pembuatan game Minil
 > Cara lainnya adalah dengan menekan tombol **Sync fork** di Github anda, lalu melakukan fetch/pull di device anda
 
 ## Good Practices
-1. Jika ingin menambahkan satu fitur/melakukan pengubahan file, **lakukan di branch baru**
+1. Jika ingin menambahkan fitur/melakukan pengubahan file, **lakukan di branch baru**
 > [!IMPORTANT]
 > Branch `main` digunakan untuk syncing dengan repository utama
 2. Jika ingin menambah file dan/atau memindahkan file, pastikan Unity Engine dalam keadaan **terbuka** dan lakukan cut/copy/paste **di dalam Unity Engine**
