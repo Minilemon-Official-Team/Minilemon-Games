@@ -43,6 +43,27 @@ Repository ini berisikan project files yang digunakan dalam pembuatan game Minil
 > Memindahkan file di luar Unity Engine dapat mengakibatkan **Meta file conflict**, yaitu ketika beberapa kontributor memiliki file yang sama tetapi dengan pointer (meta) yang berbeda-beda.\
 > \
 > Hal tersebut disebabkan oleh pemindahan file asset yang tidak diikuti dengan pemindahan file meta.
-
+3. Gunakan **naming scheme** agar menjaga konsistensi dan tidak membingungkan kontributor lainnya.
 
 ## Project Structure
+- `Assets/`\
+Berisi file utama yang digunakan oleh Unity Engine dalam pembuatan game ini.
+    - `Editor/`\
+    Unknown.
+    - `Library/`\
+    Berisi asset-asset yang diperoleh dari luar Minilemon. (biasanya asset bundle)
+    - `Plugins/`\
+    Unknown.
+    - `Prefabs/`\
+    Berisi object prefab (yang biasanya digunakan berulang-ulang di berbagai tempat)
+    - `Resources/`\
+    Berisi asset yang diproduksi langsung oleh tim internal Minilemon, atau yang bukan asset pack (seperti font, character model, ui graphics, dsb.)
+    - `Scenes/`\
+    Berisi level-level atau scene game.
+    - `Script/`\
+    Berisi kode.
+
+- `Packages/`\
+Berisikan packages yang diinstal melalui **Unity Package Manager**
+- `ProjectSettings/`\
+Berisikan konfigurasi project seperti graphics, player settings, dsb.
