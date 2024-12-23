@@ -64,6 +64,6 @@ Berisi file utama yang digunakan oleh Unity Engine dalam pembuatan game ini.
     Berisi kode.
 
 - `Packages/`\
-Berisikan packages yang diinstal melalui **Unity Package Manager**
+Berisikan package yang diinstal melalui **Unity Package Manager**
 - `ProjectSettings/`\
 Berisikan konfigurasi project seperti graphics, player settings, dsb.
