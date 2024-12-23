@@ -5,17 +5,41 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Class untuk panel misi yang sedang berlangsung
+/// </summary>
 public class MissionPanel : MonoBehaviour
 {
-    [field: SerializeField, Tooltip("Background")]
+    /// <summary>
+    /// Object gambar background
+    /// </summary>
+    [field: SerializeField, Tooltip("Object gambar background")]
     public Image image { get; private set; }
 
+    /// <summary>
+    /// Misi yang sedang berlangsung
+    /// </summary>
     [field: NonSerialized]
     public Mission mission { private get; set; }
 
-    [SerializeField] private TextMeshProUGUI textDescription;
-    [SerializeField] private TextMeshProUGUI textProgress;
-    [SerializeField] private TextMeshProUGUI textTimer;
+    /// <summary>
+    /// Text box berisi deskripsi misi
+    /// </summary>
+    [SerializeField, Tooltip("Text box berisi deskripsi misi")]
+    private TextMeshProUGUI textDescription;
+
+    /// <summary>
+    /// Text box berisi progress misi
+    /// </summary>
+    [SerializeField, Tooltip("Text box berisi progress misi")]
+    private TextMeshProUGUI textProgress;
+
+    /// <summary>
+    /// Text box berisi sisa waktu
+    /// </summary>
+    [SerializeField, Tooltip("Text box berisi sisa waktu")]
+    private TextMeshProUGUI textTimer;
+
 
     void Start()
     {
@@ -36,6 +60,9 @@ public class MissionPanel : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Saat misi berhasil
+    /// </summary>
     void OnMissionCompleted()
     {
         textProgress.text = "BERHASIL";
@@ -44,6 +71,9 @@ public class MissionPanel : MonoBehaviour
         Destroy(gameObject, 3f);
     }
 
+    /// <summary>
+    /// Saat misi gagal
+    /// </summary>
     void OnMissionFailed()
     {
         textProgress.text = "GAGAL";

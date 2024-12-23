@@ -6,9 +6,12 @@ public class Collectible : MonoBehaviour
 {
     public Item item;
 
+    /// <summary>
+    /// Ambil collectible
+    /// </summary>
     public virtual void Pick()
     {
-        EventBus.InvokeItemCollected(item);
+        EventBus.ItemCollected?.Invoke(item);
         
         Player.instance.inventory.AddItem(item);
         Destroy(gameObject);

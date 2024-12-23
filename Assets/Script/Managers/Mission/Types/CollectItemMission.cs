@@ -1,15 +1,27 @@
 using System;
 using UnityEngine;
 
+/// <summary>
+/// Class untuk misi mengumpulkan item
+/// </summary>
 [CreateAssetMenu(fileName = "CollectItemMission", menuName = "Missions/Collect Item Mission")]
 public class CollectItemMission : Mission
 {
+    /// <summary>
+    /// Item yang harus dikumpulkan
+    /// </summary>
     [field: SerializeField, Tooltip("Item yang harus dikumpulkan, letaknya di Assets/Resources/Items")]
     public ItemData item { get; private set; }
 
+    /// <summary>
+    /// Banyak item yang harus didapatkan
+    /// </summary>
     [field: SerializeField, Min(1), Tooltip("Banyak item yang harus didapatkan")]
     public int target { get; private set; }
 
+    /// <summary>
+    /// Progress saat ini
+    /// </summary>
     [field: NonSerialized]
     public int progress { get; private set; }
 
@@ -18,14 +30,12 @@ public class CollectItemMission : Mission
         if (item.data != this.item) return;
 
         progress += item.amount;
-        Debug.Log($"Progress: {progress}/{target} ({progress / (float)target:P2})");
 
         if (progress >= target)
         {
             End();
-            Debug.Log("Mission completed!");
 
-            EventBus.InvokeMissionCompleted(this);
+            EventBus.MissionCompleted?.Invoke(this);
             MissionCompleted?.Invoke();
         }
     }

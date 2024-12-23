@@ -1,8 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+/// <summary>
+/// Class untuk harta karun
+/// </summary>
 public class Treasure : Collectible
 {
     [SerializeField, Tooltip("Canvas tulisan tombol")]
@@ -50,17 +51,23 @@ public class Treasure : Collectible
         
     }
 
+    /// <summary>
+    /// Interaksi dengan treasure
+    /// </summary>
     public void Interact()
     {
         if (isOpened) return;
 
-        if (!needKey) OpenChest();
-        else if (Player.instance.inventory.UseKey()) OpenChest();
+        if (!needKey) Open();
+        else if (Player.instance.inventory.UseKey()) Open();
     }
 
-    void OpenChest()
+    /// <summary>
+    /// Buka treasure
+    /// </summary>
+    void Open()
     {
-        EventBus.InvokeItemCollected(item);
+        EventBus.ItemCollected?.Invoke(item);
         display.SetActive(false);
         anim.SetBool("OpenChest", true);
 

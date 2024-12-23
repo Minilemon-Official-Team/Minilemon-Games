@@ -5,6 +5,9 @@ using TMPro;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
 
+/// <summary>
+/// Class untuk menampilkan inventory
+/// </summary>
 public class InventoryUI : MonoBehaviour
 {
     public static InventoryUI instance { get; private set; }
@@ -36,7 +39,9 @@ public class InventoryUI : MonoBehaviour
         actions.FindAction("Toggle").performed += _ => Toggle();
     }
 
-    // Perbarui inventory
+    /// <summary>
+    /// Refresh list inventory
+    /// </summary>
     public void Refresh()
     {
         foreach (Transform child in transform)
@@ -52,6 +57,9 @@ public class InventoryUI : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Munculkan/sembunyikan inventory
+    /// </summary>
     public void Toggle()
     {
         visible = !visible;
@@ -63,6 +71,4 @@ public class InventoryUI : MonoBehaviour
 
         Refresh();
     }
-
-    
 }

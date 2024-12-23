@@ -3,28 +3,53 @@ using UnityEngine;
 using StarterAssets;
 using Cinemachine;
 
+/// <summary>
+/// Class untuk player
+/// </summary>
 public class Player : MonoBehaviour
 {
     public static Player instance { get; private set; }
 
     [Header("Player Item Pickup")]
 
+    /// <summary>
+    /// Posisi tangan (mengambil item)
+    /// </summary>
     [Tooltip("Posisi tangan (mengambil item)")]
     [SerializeField] Transform handTransform;
 
+    /// <summary>
+    /// Posisi kepala (aiming untuk mengambil item)
+    /// </summary>
     [Tooltip("Posisi kepala (aiming untuk mengambil item)")]
     [SerializeField] Transform headTransform;
 
+    /// <summary>
+    /// Layer dari item yang diambil
+    /// </summary>
     [Tooltip("Layer dari item yang diambil")]
     [SerializeField] LayerMask itemLayer;
 
-    [Tooltip("Jarak yang diperbolehkan untuk diambil")]
+    /// <summary>
+    /// Jarak yang diperbolehkan untuk mengambil/berinteraksi dengan item
+    /// </summary>
+    [Tooltip("Jarak yang diperbolehkan untuk mengambil/berinteraksi dengan item")]
     [SerializeField, Min(0)] float pickupRange = 5f;
 
-    [Tooltip("Sudut yang diperbolehkan untuk diambil")]
+    /// <summary>
+    /// Sudut yang diperbolehkan untuk mengambil/berinteraksi dengan item
+    /// </summary>
+    [Tooltip("Sudut yang diperbolehkan untuk mengambil/berinteraksi dengan item")]
     [SerializeField, Range(0, 45)] float pickupAngle = 30f;
     
+    /// <summary>
+    /// Item yang berada di dekat player
+    /// </summary>
     GameObject nearbyItem;
+
+    /// <summary>
+    /// Item yang dipegang player
+    /// </summary>
     GameObject handItem;
 
     public Inventory inventory { get; private set; }
@@ -39,7 +64,9 @@ public class Player : MonoBehaviour
         InitializeComponents();
     }
 
-
+    /// <summary>
+    /// Menginisialisasi komponen-komponen player
+    /// </summary>
     void InitializeComponents()
     {
         CinemachineVirtualCamera camera = GameObject.Find("PlayerFollowCamera").GetComponent<CinemachineVirtualCamera>();
@@ -49,12 +76,15 @@ public class Player : MonoBehaviour
         camera.LookAt = cameraRoot;
         camera.Follow = cameraRoot;
     }
+
     void Update()
     {
         CheckForNearbyItems();
     }
 
-    // Mendeteksi gameobject dekat dengan layer yang benar
+    /// <summary>
+    /// Mendeteksi item yang berada di dekat player
+    /// </summary>
     void CheckForNearbyItems()
     {
         Vector3 playerForward = transform.forward;
@@ -89,7 +119,9 @@ public class Player : MonoBehaviour
         }
     }
 
-    // Ambil item
+    /// <summary>
+    /// Mengambil item yang berada di hadapan player
+    /// </summary>
     public void OnGrab()
     {
         try
@@ -102,6 +134,9 @@ public class Player : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Interaksi dengan item yang berada di hadapan player
+    /// </summary>
     public void OnInteraction()
     {
         try
@@ -114,6 +149,10 @@ public class Player : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Memegang item
+    /// </summary>
+    /// <param name="item">Item yang dipegang</param>
     public void SetHand(Item item)
     {
         if (handItem != null)
@@ -128,7 +167,9 @@ public class Player : MonoBehaviour
         handItem.GetComponent<Collectible>().item.data = item.data;
     }
 
-    // Jatuhkan Item
+    /// <summary>
+    /// Jatuhkan item yang dipegang ke tanah
+    /// </summary>
     public void OnDrop()
     {
         if (handItem == null)
