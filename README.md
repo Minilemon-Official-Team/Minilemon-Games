@@ -49,7 +49,7 @@ Repository ini berisikan project files yang digunakan dalam pembuatan game Minil
 - `Assets/`\
 Berisi file utama yang digunakan oleh Unity Engine dalam pembuatan game ini.
     - `Editor/`\
-    Unknown.
+    Berisi kode yang dijalankan di editor (editor scripts).
     - `Library/`\
     Berisi asset-asset yang diperoleh dari luar Minilemon. (biasanya asset bundle)
     - `Plugins/`\
