@@ -1,7 +1,12 @@
 using UnityEngine;
 
+/// <summary>
+/// Class untuk mengatur popup, 1 popup pada satu waktu
+/// </summary>
 public class Popup : MonoBehaviour
 {
+    public static bool isOpened = false;
+    
     void Awake()
     {
         if (GameObject.FindGameObjectsWithTag("Popup").Length > 0)
@@ -14,6 +19,9 @@ public class Popup : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Buka popup
+    /// </summary>
     public static void Open()
     {
         if (isOpened) return;
@@ -23,6 +31,9 @@ public class Popup : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
     }
 
+    /// <summary>
+    /// Tutup popup
+    /// </summary>
     public static void Close()
     {
         if (!isOpened) return;
@@ -31,6 +42,4 @@ public class Popup : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
     }
-
-    public static bool isOpened = false;
 }

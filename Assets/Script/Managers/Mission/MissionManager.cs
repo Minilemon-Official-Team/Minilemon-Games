@@ -5,14 +5,15 @@ public class MissionManager : MonoBehaviour
 {
     public static MissionManager instance { get; private set; }
 
+    /// <summary>
+    /// List misi yang sedang berjalan
+    /// </summary>
     public List<Mission> missions { get; private set; } = new();
 
-    GameObject missionPrefab;
-
-    [SerializeField]
+    [SerializeField, Tooltip("Object untuk menampilkan misi yang akan diberikan")]
     private GameObject missionDisplay;
 
-    [SerializeField]
+    [SerializeField, Tooltip("Object untuk menampilkan misi yang sedang berjalan")]
     private GameObject missionPanel;
 
     void Awake()
@@ -37,11 +38,18 @@ public class MissionManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Hapus misi dari list
+    /// </summary>
+    /// <param name="mission">Misi yang ingin dihapus</param>
     void RemoveMission(Mission mission)
     {
         missions.Remove(mission);
     }
 
+    /// <summary>
+    /// Mulai misi
+    /// </summary>
     void StartMission()
     {
         foreach (Mission mission in missions)
@@ -56,6 +64,10 @@ public class MissionManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Tampilkan misi apa saja yang ada di pemberi misi
+    /// </summary>
+    /// <param name="giver">Pemberi misi</param>
     void ShowMissions(MissionGiver giver)
     {
         GameObject display = Instantiate(missionDisplay, GameObject.FindGameObjectWithTag("UI").transform);

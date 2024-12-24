@@ -11,6 +11,9 @@ public class MissionGiver : MonoBehaviour
 
     GameObject mission;
 
+    /// <summary>
+    /// Berikan misi ke player
+    /// </summary>
     public void GiveMission()
     {
         MissionManager.instance.missions.AddRange(missionsToGive);
@@ -22,14 +25,14 @@ public class MissionGiver : MonoBehaviour
         }
         mission = Instantiate(missionPrefab, Vector3.zero, Quaternion.identity);
         
-        EventBus.InvokeMissionStarted();
+        EventBus.MissionStarted?.Invoke();
     }
 
     void OnTriggerEnter(Collider collider)
     {
         if (collider.CompareTag("Player") && MissionManager.instance.missions.Count == 0 && !Popup.isOpened)
         {
-            EventBus.InvokeMissionsGiven(this);
+            EventBus.MissionsGiven?.Invoke(this);
         }
     }
 }

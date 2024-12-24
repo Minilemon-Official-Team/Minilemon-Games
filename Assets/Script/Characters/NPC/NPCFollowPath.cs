@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Class untuk membuat NPC berjalan mengikuti path
+/// </summary>
 public class NPCFollowPath : MonoBehaviour
 {
     [SerializeField] Transform[] path;
