@@ -53,13 +53,13 @@ Berisi file utama yang digunakan oleh Unity Engine dalam pembuatan game ini.
     - `Editor/`\
     Berisi kode yang dijalankan di editor (editor scripts).
     - `Library/`\
-    Berisi asset-asset yang diperoleh dari luar Minilemon. (biasanya asset bundle)
+    Berisi asset-asset yang diperoleh dari luar Minilemon, misalnya asset bundle.
     - `Plugins/`\
     Unknown.
     - `Prefabs/`\
-    Berisi object prefab (yang biasanya digunakan berulang-ulang di berbagai tempat)
+    Berisi object prefab yang biasanya digunakan berulang-ulang di berbagai tempat.
     - `Resources/`\
-    Berisi asset yang diproduksi langsung oleh tim internal Minilemon, atau yang bukan asset pack (seperti font, character model, ui graphics, dsb.)
+    Berisi asset yang diproduksi langsung oleh tim internal Minilemon, atau yang bukan asset pack, seperti font, character model, ui graphics, dan lain-lain.
     - `Scenes/`\
     Berisi level-level atau scene game.
     - `Script/`\
