@@ -43,7 +43,9 @@ Repository ini berisikan project files yang digunakan dalam pembuatan game Minil
 > Memindahkan file di luar Unity Engine dapat mengakibatkan **Meta file conflict**, yaitu ketika beberapa kontributor memiliki file yang sama tetapi dengan pointer (meta) yang berbeda-beda.\
 > \
 > Hal tersebut disebabkan oleh pemindahan file asset yang tidak diikuti dengan pemindahan file meta.
-3. Gunakan **naming scheme** agar menjaga konsistensi dan tidak membingungkan kontributor lainnya.
+4. Gunakan **naming scheme** agar menjaga konsistensi dan tidak membingungkan kontributor lainnya.
+> [!IMPORTANT]
+> Letakkan file sesuai dengan tempatnya.
 
 ## Project Structure
 - `Assets/`\
